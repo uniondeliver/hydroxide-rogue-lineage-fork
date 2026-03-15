@@ -1,4 +1,3 @@
-
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
@@ -3128,7 +3127,7 @@ if game.PlaceId == 3541987450 or game.PlaceId == 5208655184 or game.PlaceId == 1
         end
     end
     
-    local repo = "https://raw.githubusercontent.com/heisenburgah/HYDROXIDE/refs/heads/main/"
+    local repo = "https://raw.githubusercontent.com/uniondeliver/hydroxide-rogue-lineage-fork/refs/heads/main/"
     local success, library_func = pcall(function()
         return loadstring(game:HttpGet(repo .. "DEPENDENCIES/Library.lua", true))()
     end)
@@ -7141,7 +7140,7 @@ if game.PlaceId == 3541987450 or game.PlaceId == 5208655184 or game.PlaceId == 1
                                 local queue_func = queueteleport or queue_on_teleport
                                 if queue_func then
                                     local success, err = pcall(function()
-                                        local loader_script = [[if not game:IsLoaded() then game.Loaded:Wait() end task.wait(1) local fn,ce if readfile and isfile then if isfile("rogue.lua") then fn,ce=loadstring(readfile("rogue.lua")) elseif isfile("bazaar_loader.lua") then fn,ce=loadstring(readfile("bazaar_loader.lua")) end end if fn then local ok,err=pcall(fn) if not ok then print("[QUEUE ERROR]",err) end elseif ce then print("[QUEUE ERROR]",ce) else local s,code=pcall(function() return game:HttpGet("https://raw.githubusercontent.com/heisenburgah/HYDROXIDE/refs/heads/main/loader.lua") end) if s then fn,ce=loadstring(code) if fn then pcall(fn) else print("[QUEUE ERROR]",ce) end else print("[QUEUE ERROR]",code) end end]]
+                                        local loader_script = [[if not game:IsLoaded() then game.Loaded:Wait() end task.wait(1) local fn,ce if readfile and isfile then if isfile("rogue.lua") then fn,ce=loadstring(readfile("rogue.lua")) elseif isfile("bazaar_loader.lua") then fn,ce=loadstring(readfile("bazaar_loader.lua")) end end if fn then local ok,err=pcall(fn) if not ok then print("[QUEUE ERROR]",err) end elseif ce then print("[QUEUE ERROR]",ce) else local s,code=pcall(function() return game:HttpGet("https://raw.githubusercontent.com/uniondeliver/hydroxide-rogue-lineage-fork/refs/heads/main/rogue.lua") end) if s then fn,ce=loadstring(code) if fn then pcall(fn) else print("[QUEUE ERROR]",ce) end else print("[QUEUE ERROR]",code) end end]]
                                         queue_func(loader_script)
                                     end)
 
@@ -13541,7 +13540,7 @@ if game.PlaceId == 3541987450 or game.PlaceId == 5208655184 or game.PlaceId == 1
                         local queue_func = queueteleport or queue_on_teleport
                         if queue_func then
                             local success, err = pcall(function()
-                                local loader_script = [[if not game:IsLoaded() then game.Loaded:Wait() end task.wait(1) local fn,ce if readfile and isfile then if isfile("rogue.lua") then fn,ce=loadstring(readfile("rogue.lua")) elseif isfile("bazaar_loader.lua") then fn,ce=loadstring(readfile("bazaar_loader.lua")) end end if fn then local ok,err=pcall(fn) if not ok then print("[QUEUE ERROR]",err) end elseif ce then print("[QUEUE ERROR]",ce) else local s,code=pcall(function() return game:HttpGet("https://raw.githubusercontent.com/heisenburgah/HYDROXIDE/refs/heads/main/loader.lua") end) if s then fn,ce=loadstring(code) if fn then pcall(fn) else print("[QUEUE ERROR]",ce) end else print("[QUEUE ERROR]",code) end end]]
+                                local loader_script = [[if not game:IsLoaded() then game.Loaded:Wait() end task.wait(1) local fn,ce if readfile and isfile then if isfile("rogue.lua") then fn,ce=loadstring(readfile("rogue.lua")) elseif isfile("bazaar_loader.lua") then fn,ce=loadstring(readfile("bazaar_loader.lua")) end end if fn then local ok,err=pcall(fn) if not ok then print("[QUEUE ERROR]",err) end elseif ce then print("[QUEUE ERROR]",ce) else local s,code=pcall(function() return game:HttpGet("https://raw.githubusercontent.com/uniondeliver/hydroxide-rogue-lineage-fork/refs/heads/main/rogue.lua") end) if s then fn,ce=loadstring(code) if fn then pcall(fn) else print("[QUEUE ERROR]",ce) end else print("[QUEUE ERROR]",code) end end]]
                                 queue_func(loader_script)
                             end)
 
@@ -27259,7 +27258,7 @@ end
                     local queue_func = queueteleport or queue_on_teleport
                     if queue_func then
                         local success, err = pcall(function()
-                            local loader_script = [[if not game:IsLoaded() then game.Loaded:Wait() end task.wait(1) local fn,ce if readfile and isfile then if isfile("rogue.lua") then fn,ce=loadstring(readfile("rogue.lua")) elseif isfile("bazaar_loader.lua") then fn,ce=loadstring(readfile("bazaar_loader.lua")) end end if fn then local ok,err=pcall(fn) if not ok then print("[QUEUE ERROR]",err) end elseif ce then print("[QUEUE ERROR]",ce) else local s,code=pcall(function() return game:HttpGet("https://raw.githubusercontent.com/heisenburgah/HYDROXIDE/refs/heads/main/loader.lua") end) if s then fn,ce=loadstring(code) if fn then pcall(fn) else print("[QUEUE ERROR]",ce) end else print("[QUEUE ERROR]",code) end end]]
+                            local loader_script = [[if not game:IsLoaded() then game.Loaded:Wait() end task.wait(1) local fn,ce if readfile and isfile then if isfile("rogue.lua") then fn,ce=loadstring(readfile("rogue.lua")) elseif isfile("bazaar_loader.lua") then fn,ce=loadstring(readfile("bazaar_loader.lua")) end end if fn then local ok,err=pcall(fn) if not ok then print("[QUEUE ERROR]",err) end elseif ce then print("[QUEUE ERROR]",ce) else local s,code=pcall(function() return game:HttpGet("https://raw.githubusercontent.com/uniondeliver/hydroxide-rogue-lineage-fork/refs/heads/main/rogue.lua") end) if s then fn,ce=loadstring(code) if fn then pcall(fn) else print("[QUEUE ERROR]",ce) end else print("[QUEUE ERROR]",code) end end]]
                             queue_func(loader_script)
                         end)
                     end
