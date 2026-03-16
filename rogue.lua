@@ -25552,19 +25552,26 @@ end
                     local active_ingredients = {}
                     local player_position = nil
                     local max_distance = 0
-                    
+
+                    local BLACKLISTED_INGREDIENT_NAMES = {
+                        ["Blood Thorn"] = true,
+                        ["BloodThorn"]  = true,
+                    }
+
                     local function update_active_ingredients()
                         if not plr.Character then return end
                         player_position = plr.Character.HumanoidRootPart.Position
                         active_ingredients = {}
-                        
+
                         for _, object in next, ingredients do
                             if object and object.Parent then
+                                local ingredient_name = cheat_client:identify_ingredient(object)
+                                if BLACKLISTED_INGREDIENT_NAMES[ingredient_name] then continue end
                                 local click_detector = FindFirstChild(object, "ClickDetector")
                                 if click_detector then
                                     max_distance = click_detector.MaxActivationDistance - 2
                                     local distance = (object.Position - player_position).Magnitude
-                                    
+
                                     if distance > 0 and distance < max_distance then
                                         active_ingredients[#active_ingredients + 1] = {
                                             object = object,
@@ -25583,18 +25590,19 @@ end
                     end
                     
                     utility:Connection(ingredient_folder.ChildAdded, function(object)
-                        if not cheat_client.blacklisted_ingredients[object.Position] then
-                            ingredients[#ingredients + 1] = object
-                            if plr.Character and FindFirstChild(plr.Character, "HumanoidRootPart") and cheat_client.feature_connections.auto_ingredient then
-                                local click_detector = FindFirstChild(object, "ClickDetector")
-                                if click_detector then
-                                    local distance = (object.Position - plr.Character.HumanoidRootPart.Position).Magnitude
-                                    if distance > 0 and distance < click_detector.MaxActivationDistance - 2 then
-                                        active_ingredients[#active_ingredients + 1] = {
-                                            object = object,
-                                            detector = click_detector
-                                        }
-                                    end
+                        local ingredient_name = cheat_client:identify_ingredient(object)
+                        if cheat_client.blacklisted_ingredients[object.Position] then return end
+                        if BLACKLISTED_INGREDIENT_NAMES[ingredient_name] then return end
+                        ingredients[#ingredients + 1] = object
+                        if plr.Character and FindFirstChild(plr.Character, "HumanoidRootPart") and cheat_client.feature_connections.auto_ingredient then
+                            local click_detector = FindFirstChild(object, "ClickDetector")
+                            if click_detector then
+                                local distance = (object.Position - plr.Character.HumanoidRootPart.Position).Magnitude
+                                if distance > 0 and distance < click_detector.MaxActivationDistance - 2 then
+                                    active_ingredients[#active_ingredients + 1] = {
+                                        object = object,
+                                        detector = click_detector
+                                    }
                                 end
                             end
                         end
